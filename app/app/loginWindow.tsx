@@ -8,9 +8,8 @@ export default function LoginWindow(
   }
 ) {
 
-  /* 
-    TODO #1: Add a state variable to store the current error message
-  */
+const [error, setError] = useState<string>("")
+
 
   /*
     This function is called to set up the profile of the new user. It is called
@@ -19,10 +18,13 @@ export default function LoginWindow(
     @param form - FormData object containing the username and name of the new user
   */
   const onSubmit = async (form: FormData) => {
-    /* 
-      TODO #3: Set the error state to an empty string
-    */
-
+    setError("")
+        try {
+         setUpProfile
+         
+        } catch (error: any) {
+         setError(error.message)
+        }
     /* 
       TODO #4: Set up a try catch block to call the setUpProfile() function and set the error state
       if an error is thrown
@@ -63,9 +65,9 @@ export default function LoginWindow(
             Create Account
           </button>
           <p className="text-red-500">
-            {/* 
-              TODO #2: Display the error message if it is not an empty string using the error state variable
-            */}
+            {
+            error && <p>{error}</p>
+            }
             {
               "PLACEHOLDER"
             }
