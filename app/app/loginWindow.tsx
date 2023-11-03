@@ -8,31 +8,17 @@ export default function LoginWindow(
   }
 ) {
 
-const [error, setError] = useState<string>("")
-
-
-  /*
-    This function is called to set up the profile of the new user. It is called
-    when a user submits the login form. It takes a FormData object as an argument,
-    which contains the username and name of the new user.
-    @param form - FormData object containing the username and name of the new user
-  */
+ 
+  const [error, setError] = useState<string>("")
   const onSubmit = async (form: FormData) => {
-    setError("")
+
+   setError("")
         try {
          setUpProfile
          
         } catch (error: any) {
          setError(error.message)
-        }
-    /* 
-      TODO #4: Set up a try catch block to call the setUpProfile() function and set the error state
-      if an error is thrown
-
-      HINT: 
-        - Use the setUpProfile() function to set up the user's profile and log them in
-        - In the catch block, set the error state to the error message (error.message)
-    */
+        }
   }
 
   return (
